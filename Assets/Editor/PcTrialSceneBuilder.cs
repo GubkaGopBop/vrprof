@@ -84,7 +84,14 @@ namespace VrProf
             if (second.Completed || second.CompletedSteps != 4 || second.Errors != 1)
                 throw new Exception("Проверка незавершённой попытки не прошла.");
 
+            string summary = TrialLogic.BuildSummary("Замена модуля оперативной памяти", "S001",
+                first, 2, 4, "Работа интересна.", "После подсказки задание завершено.");
+            if (!summary.Contains("Выполнено шагов: 9 из 9.")
+                || !summary.Contains("Подсказок: 1; ошибок: 1."))
+                throw new Exception("Проверка сводки не прошла.");
+
             Debug.Log("Пример 1: 9/9 шагов, 1 подсказка, 1 ошибка. Пример 2: 4/9 шагов, 0 подсказок, 1 ошибка.");
+            Debug.Log("Проверка сводки: выполненные шаги, подсказки и ошибки совпадают с исходными данными.");
         }
 
         [MenuItem("Tools/VrProf/Проверить сцену")]
