@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -7,8 +8,18 @@ using UnityEngine.SceneManagement;
 
 namespace VrProf
 {
+    [InitializeOnLoad]
     public static class PcTrialSceneBuilder
     {
+        private const string PlayModeCheckKey = "VrProf.PlayModeCheckPending";
+        private static int playModeWaitTicks;
+
+        static PcTrialSceneBuilder()
+        {
+            if (SessionState.GetBool(PlayModeCheckKey, false))
+                EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+        }
+
         [MenuItem("Tools/VrProf/Создать сцену пробы")]
         public static void CreateScene()
         {
@@ -105,6 +116,81 @@ namespace VrProf
             if (EditorBuildSettings.scenes.Length != 1 || EditorBuildSettings.scenes[0].path != path)
                 throw new Exception("Сцена пробы не выбрана для сборки.");
             Debug.Log("Сцена пробы проверена: контроллер, корпус, неисправный и запасной модули найдены.");
+        }
+
+        [MenuItem("Tools/VrProf/Проверить Play Mode")]
+        public static void CheckPlayMode()
+        {
+            EditorSceneManager.OpenScene("Assets/Scenes/PcTrial.unity", OpenSceneMode.Single);
+            playModeWaitTicks = 0;
+            SessionState.SetBool(PlayModeCheckKey, true);
+            EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+            EditorApplication.isPlaying = true;
+        }
+
+        private static void OnPlayModeStateChanged(PlayModeStateChange state)
+        {
+            if (state != PlayModeStateChange.EnteredPlayMode)
+                return;
+            SessionState.SetBool(PlayModeCheckKey, false);
+            EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
+            EditorApplication.update += CheckPlayModeTick;
+        }
+
+        private static void CheckPlayModeTick()
+        {
+            playModeWaitTicks++;
+            if (Time.frameCount < 3 && playModeWaitTicks < 300)
+                return;
+            EditorApplication.update -= CheckPlayModeTick;
+
+            try
+            {
+                if (!Application.isPlaying || Time.frameCount < 3)
+                    throw new Exception("Сцена не перешла к работающим кадрам Play Mode.");
+
+                PcTrialController controller = UnityEngine.Object.FindFirstObjectByType<PcTrialController>();
+                if (controller == null)
+                    throw new Exception("Контроллер не найден в Play Mode.");
+
+                MethodInfo act = typeof(PcTrialController).GetMethod("Act", BindingFlags.Instance | BindingFlags.NonPublic);
+                MethodInfo hint = typeof(PcTrialController).GetMethod("Hint", BindingFlags.Instance | BindingFlags.NonPublic);
+                FieldInfo resultField = typeof(PcTrialController).GetField("result", BindingFlags.Instance | BindingFlags.NonPublic);
+                if (act == null || hint == null || resultField == null)
+                    throw new Exception("Не удалось получить методы и результат контроллера.");
+
+                TrialStep[] steps = TrialLogic.CreateRamReplacementSteps();
+                for (int i = 0; i < 4; i++)
+                    act.Invoke(controller, new object[] { steps[i].Code, steps[i].ObjectId });
+                hint.Invoke(controller, null);
+                act.Invoke(controller, new object[] { "SELECT_FAULTY", "ram_slot_a" });
+                for (int i = 4; i < steps.Length; i++)
+                    act.Invoke(controller, new object[] { steps[i].Code, steps[i].ObjectId });
+
+                TrialResult result = (TrialResult)resultField.GetValue(controller);
+                if (!result.Completed || result.CompletedSteps != 9 || result.Hints != 1 || result.Errors != 1)
+                    throw new Exception("Неверный результат после действий в Play Mode.");
+                if (!controller.CaseLid.activeSelf || controller.FaultyRam.activeSelf
+                    || Vector3.Distance(controller.SpareRam.transform.position, new Vector3(1.1f, 1.35f, 0.1f)) > 0.01f)
+                    throw new Exception("Состояние объектов не соответствует завершённой пробе.");
+
+                Debug.Log("Play Mode: кадры обновлялись; после 9 верных действий, подсказки и ошибки проба завершена; корпус закрыт, модуль заменён.");
+                FinishPlayModeCheck(0);
+            }
+            catch (Exception error)
+            {
+                Debug.LogException(error);
+                FinishPlayModeCheck(1);
+            }
+        }
+
+        private static void FinishPlayModeCheck(int exitCode)
+        {
+            if (Application.isBatchMode)
+                EditorApplication.delayCall += () => EditorApplication.Exit(exitCode);
+            else
+                EditorApplication.isPlaying = false;
         }
 
         private static GameObject Box(string name, Vector3 position, Vector3 size, Color color)
