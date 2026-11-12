@@ -11,8 +11,10 @@ namespace VrProf
         [Serializable]
         private sealed class SavedAttempt
         {
+            public string AttemptId;
             public string ExerciseId = "ram-replacement-v1";
             public string PupilCode = "S001";
+            public string MentorCode = "M001";
             public List<TrialEvent> Events = new List<TrialEvent>();
             public int Difficulty;
             public int Interest;
@@ -24,7 +26,10 @@ namespace VrProf
         public GameObject CaseLid;
         public GameObject FaultyRam;
         public GameObject SpareRam;
+        public string PupilCode = "S001";
+        public string MentorCode = "M001";
 
+        private string attemptId = Guid.NewGuid().ToString("N");
         private readonly TrialStep[] steps = TrialLogic.CreateRamReplacementSteps();
         private readonly List<TrialEvent> events = new List<TrialEvent>();
         private TrialResult result;
@@ -120,10 +125,13 @@ namespace VrProf
 
         private void SaveAttempt()
         {
-            string summary = TrialLogic.BuildSummary("Замена модуля оперативной памяти", "S001",
+            string summary = TrialLogic.BuildSummary("Замена модуля оперативной памяти", PupilCode,
                 result, difficulty, interest, studentFeedback, mentorFeedback);
             var saved = new SavedAttempt
             {
+                AttemptId = attemptId,
+                PupilCode = PupilCode,
+                MentorCode = MentorCode,
                 Events = new List<TrialEvent>(events),
                 Difficulty = difficulty,
                 Interest = interest,
@@ -131,7 +139,7 @@ namespace VrProf
                 MentorFeedback = mentorFeedback,
                 Summary = summary
             };
-            savedPath = Path.Combine(Application.persistentDataPath, "pc-trial-attempt.json");
+            savedPath = Path.Combine(Application.persistentDataPath, "pc-trial-" + attemptId + ".json");
             try
             {
                 File.WriteAllText(savedPath, JsonUtility.ToJson(saved, true));

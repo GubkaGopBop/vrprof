@@ -1,0 +1,1 @@
+{"input":"incomplete.json","matched":true,"completed":false,"completedSteps":4,"totalSteps":9,"hints":0,"errors":1,"summaryMatched":true}

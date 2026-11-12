@@ -1,0 +1,147 @@
+{
+  "total": 28,
+  "passed": 28,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "completed: Java CLI exit 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "completed: independently expected counters",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "completed: Java == C# == Unity saved summary",
+      "passed": true,
+      "detail": "{\"input\":\"completed.json\",\"matched\":true,\"completed\":true,\"completedSteps\":9,\"totalSteps\":9,\"hints\":1,\"errors\":1,\"summaryMatched\":true}"
+    },
+    {
+      "name": "incomplete: Java CLI exit 0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "incomplete: independently expected counters",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "incomplete: Java == C# == Unity saved summary",
+      "passed": true,
+      "detail": "{\"input\":\"incomplete.json\",\"matched\":true,\"completed\":false,\"completedSteps\":4,\"totalSteps\":9,\"hints\":0,\"errors\":1,\"summaryMatched\":true}"
+    },
+    {
+      "name": "Unknown exercise",
+      "passed": true,
+      "detail": "������ ������� ������: ����������� ������ �������: other"
+    },
+    {
+      "name": "Missing Events",
+      "passed": true,
+      "detail": "������ ������� ������: ��� ���� Events"
+    },
+    {
+      "name": "Null Events",
+      "passed": true,
+      "detail": "������ ������� ������: ��� ���� Events"
+    },
+    {
+      "name": "Events is not array",
+      "passed": true,
+      "detail": "������ ������� ������: Events ������ ���� ��������."
+    },
+    {
+      "name": "Number gap",
+      "passed": true,
+      "detail": "������ ������� ������: ������ ������� ������ ���� ������, ������� � 1."
+    },
+    {
+      "name": "Unknown event kind",
+      "passed": true,
+      "detail": "������ ������� ������: ������������ ����� ��� ��� �������."
+    },
+    {
+      "name": "Invalid difficulty",
+      "passed": true,
+      "detail": "������ ������� ������: ������ ������ ���� �� 1 �� 5."
+    },
+    {
+      "name": "Invalid interest",
+      "passed": true,
+      "detail": "������ ������� ������: ������ ������ ���� �� 1 �� 5."
+    },
+    {
+      "name": "Fractional rating",
+      "passed": true,
+      "detail": "������ ������� ������: ������������ JSON-������: Rounding necessary"
+    },
+    {
+      "name": "String instead of number",
+      "passed": true,
+      "detail": "������ ������� ������: Difficulty ������ ���� ����� ������."
+    },
+    {
+      "name": "String instead of boolean",
+      "passed": true,
+      "detail": "������ ������� ������: Success ������ ���� true ��� false."
+    },
+    {
+      "name": "Missing action object",
+      "passed": true,
+      "detail": "������ ������� ������: ��� ���� ObjectId"
+    },
+    {
+      "name": "Null action code",
+      "passed": true,
+      "detail": "������ ������� ������: ��� ���� StepCode"
+    },
+    {
+      "name": "Blank pupil code",
+      "passed": true,
+      "detail": "������ ������� ������: �������������� �������, ������� � ���������� �����������."
+    },
+    {
+      "name": "Empty log remains incomplete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Untrusted stored Summary ignored",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Failed first action cannot complete",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Action after completion counted as error",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "Malformed JSON",
+      "passed": true,
+      "detail": "������ ������� ������: ������������ JSON-������: java.io.EOFException: End of input at line 1 column 2 path $."
+    },
+    {
+      "name": "Trailing JSON document",
+      "passed": true,
+      "detail": "������ ������� ������: Use JsonReader.setStrictness(Strictness.LENIENT) to accept malformed JSON at line 1 column 3354 path $\nSee https://github.com/google/gson/blob/main/Troubleshooting.md#malformed-json"
+    },
+    {
+      "name": "Missing file",
+      "passed": true,
+      "detail": "������ ������� ������: C:\\Users\\User\\AppData\\Local\\Temp\\vrprof-check-1k3u8qxl\\absent.json"
+    },
+    {
+      "name": "Missing CLI arguments",
+      "passed": true,
+      "detail": "�������������: java -jar build/vrprof-analyzer.jar ������.json [�������-����������]"
+    }
+  ]
+}

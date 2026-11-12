@@ -1,0 +1,48 @@
+{
+    "AttemptId": "demo-incomplete",
+    "ExerciseId": "ram-replacement-v1",
+    "PupilCode": "S002",
+    "MentorCode": "M001",
+    "Events": [
+        {
+            "Number": 1,
+            "Kind": "action",
+            "StepCode": "READ_REPORT",
+            "ObjectId": "diagnostic_report",
+            "Success": true
+        },
+        {
+            "Number": 2,
+            "Kind": "action",
+            "StepCode": "POWER_OFF",
+            "ObjectId": "pc",
+            "Success": true
+        },
+        {
+            "Number": 3,
+            "Kind": "action",
+            "StepCode": "UNPLUG",
+            "ObjectId": "power_cable",
+            "Success": true
+        },
+        {
+            "Number": 4,
+            "Kind": "action",
+            "StepCode": "OPEN_CASE",
+            "ObjectId": "case",
+            "Success": true
+        },
+        {
+            "Number": 5,
+            "Kind": "action",
+            "StepCode": "SELECT_FAULTY",
+            "ObjectId": "ram_slot_a",
+            "Success": true
+        }
+    ],
+    "Difficulty": 4,
+    "Interest": 3,
+    "StudentFeedback": "Пока сложно найти нужную деталь.",
+    "MentorFeedback": "Нужно повторить выбор модуля.",
+    "Summary": "Проба: Замена модуля оперативной памяти.\r\nКод школьника: S002.\r\nВыполнено шагов: 4 из 9.\r\nПодсказок: 0; ошибок: 1.\r\nСложность: 4/5; интерес: 3/5.\r\nСамооценка школьника: Пока сложно найти нужную деталь.\r\nКомментарий наставника: Нужно повторить выбор модуля.\r\nСобытие 5: действие SELECT_FAULTY с объектом ram_slot_a не завершило ожидаемый шаг."
+}

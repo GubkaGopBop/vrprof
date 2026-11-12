@@ -1,0 +1,90 @@
+{
+    "AttemptId": "demo-completed",
+    "ExerciseId": "ram-replacement-v1",
+    "PupilCode": "S001",
+    "MentorCode": "M001",
+    "Events": [
+        {
+            "Number": 1,
+            "Kind": "action",
+            "StepCode": "READ_REPORT",
+            "ObjectId": "diagnostic_report",
+            "Success": true
+        },
+        {
+            "Number": 2,
+            "Kind": "action",
+            "StepCode": "POWER_OFF",
+            "ObjectId": "pc",
+            "Success": true
+        },
+        {
+            "Number": 3,
+            "Kind": "action",
+            "StepCode": "UNPLUG",
+            "ObjectId": "power_cable",
+            "Success": true
+        },
+        {
+            "Number": 4,
+            "Kind": "action",
+            "StepCode": "OPEN_CASE",
+            "ObjectId": "case",
+            "Success": true
+        },
+        {
+            "Number": 5,
+            "Kind": "hint",
+            "StepCode": "",
+            "ObjectId": "",
+            "Success": true
+        },
+        {
+            "Number": 6,
+            "Kind": "action",
+            "StepCode": "SELECT_FAULTY",
+            "ObjectId": "ram_slot_a",
+            "Success": true
+        },
+        {
+            "Number": 7,
+            "Kind": "action",
+            "StepCode": "SELECT_FAULTY",
+            "ObjectId": "ram_slot_b",
+            "Success": true
+        },
+        {
+            "Number": 8,
+            "Kind": "action",
+            "StepCode": "REMOVE_RAM",
+            "ObjectId": "ram_slot_b",
+            "Success": true
+        },
+        {
+            "Number": 9,
+            "Kind": "action",
+            "StepCode": "INSTALL_RAM",
+            "ObjectId": "ram_slot_b",
+            "Success": true
+        },
+        {
+            "Number": 10,
+            "Kind": "action",
+            "StepCode": "CLOSE_CASE",
+            "ObjectId": "case",
+            "Success": true
+        },
+        {
+            "Number": 11,
+            "Kind": "action",
+            "StepCode": "RUN_TEST",
+            "ObjectId": "memory_test",
+            "Success": true
+        }
+    ],
+    "Difficulty": 2,
+    "Interest": 4,
+    "StudentFeedback": "Сначала выбрал не тот модуль; работа интересна.",
+    "MentorFeedback": "После подсказки задание завершено.",
+    "Summary": "Проба: Замена модуля оперативной памяти.\r\nКод школьника: S001.\r\nВыполнено шагов: 9 из 9.\r\nПодсказок: 1; ошибок: 1.\r\nСложность: 2/5; интерес: 4/5.\r\nСамооценка школьника: Сначала выбрал не тот модуль; работа интересна.\r\nКомментарий наставника: После подсказки задание завершено.\r\nСобытие 6: действие SELECT_FAULTY с объектом ram_slot_a не завершило ожидаемый шаг."
+}

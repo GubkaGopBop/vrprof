@@ -9,6 +9,7 @@
 .vs/
 .idea/
 *.csproj
+!Verification/CrossCheck/CrossCheck.csproj
 *.sln
 *.slnx
 *.user
