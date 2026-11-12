@@ -1,0 +1,352 @@
+﻿{
+  "total": 5,
+  "failed": 0,
+  "checks": [
+    {
+      "name": "same_action_wrong_object",
+      "passed": true,
+      "inputEvents": [
+        {
+          "Number": 1,
+          "Kind": "action",
+          "StepCode": "READ_REPORT",
+          "ObjectId": "diagnostic_report",
+          "Success": true
+        },
+        {
+          "Number": 2,
+          "Kind": "action",
+          "StepCode": "POWER_OFF",
+          "ObjectId": "pc",
+          "Success": true
+        },
+        {
+          "Number": 3,
+          "Kind": "action",
+          "StepCode": "UNPLUG",
+          "ObjectId": "power_cable",
+          "Success": true
+        },
+        {
+          "Number": 4,
+          "Kind": "action",
+          "StepCode": "OPEN_CASE",
+          "ObjectId": "case",
+          "Success": true
+        },
+        {
+          "Number": 5,
+          "Kind": "hint",
+          "StepCode": "",
+          "ObjectId": "",
+          "Success": true
+        },
+        {
+          "Number": 6,
+          "Kind": "action",
+          "StepCode": "SELECT_FAULTY",
+          "ObjectId": "ram_slot_a",
+          "Success": true
+        }
+      ],
+      "expected": {
+        "completedSteps": 4,
+        "hints": 1,
+        "errors": 1,
+        "completed": false
+      },
+      "actual": {
+        "completedSteps": 4,
+        "totalSteps": 9,
+        "hints": 1,
+        "errors": 1,
+        "completed": false,
+        "errorDetails": [
+          "Событие 6: действие SELECT_FAULTY с объектом ram_slot_a не завершило ожидаемый шаг."
+        ]
+      }
+    },
+    {
+      "name": "correct_object_after_error",
+      "passed": true,
+      "inputEvents": [
+        {
+          "Number": 1,
+          "Kind": "action",
+          "StepCode": "READ_REPORT",
+          "ObjectId": "diagnostic_report",
+          "Success": true
+        },
+        {
+          "Number": 2,
+          "Kind": "action",
+          "StepCode": "POWER_OFF",
+          "ObjectId": "pc",
+          "Success": true
+        },
+        {
+          "Number": 3,
+          "Kind": "action",
+          "StepCode": "UNPLUG",
+          "ObjectId": "power_cable",
+          "Success": true
+        },
+        {
+          "Number": 4,
+          "Kind": "action",
+          "StepCode": "OPEN_CASE",
+          "ObjectId": "case",
+          "Success": true
+        },
+        {
+          "Number": 5,
+          "Kind": "hint",
+          "StepCode": "",
+          "ObjectId": "",
+          "Success": true
+        },
+        {
+          "Number": 6,
+          "Kind": "action",
+          "StepCode": "SELECT_FAULTY",
+          "ObjectId": "ram_slot_a",
+          "Success": true
+        },
+        {
+          "Number": 7,
+          "Kind": "action",
+          "StepCode": "SELECT_FAULTY",
+          "ObjectId": "ram_slot_b",
+          "Success": true
+        }
+      ],
+      "expected": {
+        "completedSteps": 5,
+        "hints": 1,
+        "errors": 1,
+        "completed": false
+      },
+      "actual": {
+        "completedSteps": 5,
+        "totalSteps": 9,
+        "hints": 1,
+        "errors": 1,
+        "completed": false,
+        "errorDetails": [
+          "Событие 6: действие SELECT_FAULTY с объектом ram_slot_a не завершило ожидаемый шаг."
+        ]
+      }
+    },
+    {
+      "name": "action_after_completion",
+      "passed": true,
+      "inputEvents": [
+        {
+          "Number": 1,
+          "Kind": "action",
+          "StepCode": "READ_REPORT",
+          "ObjectId": "diagnostic_report",
+          "Success": true
+        },
+        {
+          "Number": 2,
+          "Kind": "action",
+          "StepCode": "POWER_OFF",
+          "ObjectId": "pc",
+          "Success": true
+        },
+        {
+          "Number": 3,
+          "Kind": "action",
+          "StepCode": "UNPLUG",
+          "ObjectId": "power_cable",
+          "Success": true
+        },
+        {
+          "Number": 4,
+          "Kind": "action",
+          "StepCode": "OPEN_CASE",
+          "ObjectId": "case",
+          "Success": true
+        },
+        {
+          "Number": 5,
+          "Kind": "action",
+          "StepCode": "SELECT_FAULTY",
+          "ObjectId": "ram_slot_b",
+          "Success": true
+        },
+        {
+          "Number": 6,
+          "Kind": "action",
+          "StepCode": "REMOVE_RAM",
+          "ObjectId": "ram_slot_b",
+          "Success": true
+        },
+        {
+          "Number": 7,
+          "Kind": "action",
+          "StepCode": "INSTALL_RAM",
+          "ObjectId": "ram_slot_b",
+          "Success": true
+        },
+        {
+          "Number": 8,
+          "Kind": "action",
+          "StepCode": "CLOSE_CASE",
+          "ObjectId": "case",
+          "Success": true
+        },
+        {
+          "Number": 9,
+          "Kind": "action",
+          "StepCode": "RUN_TEST",
+          "ObjectId": "memory_test",
+          "Success": true
+        },
+        {
+          "Number": 10,
+          "Kind": "action",
+          "StepCode": "RUN_TEST",
+          "ObjectId": "memory_test",
+          "Success": true
+        }
+      ],
+      "expected": {
+        "completedSteps": 9,
+        "hints": 0,
+        "errors": 1,
+        "completed": true
+      },
+      "actual": {
+        "completedSteps": 9,
+        "totalSteps": 9,
+        "hints": 0,
+        "errors": 1,
+        "completed": true,
+        "errorDetails": [
+          "Событие 10: действие RUN_TEST с объектом memory_test не завершило ожидаемый шаг."
+        ]
+      }
+    },
+    {
+      "name": "matching_but_unsuccessful",
+      "passed": true,
+      "inputEvents": [
+        {
+          "Number": 1,
+          "Kind": "action",
+          "StepCode": "READ_REPORT",
+          "ObjectId": "diagnostic_report",
+          "Success": false
+        }
+      ],
+      "expected": {
+        "completedSteps": 0,
+        "hints": 0,
+        "errors": 1,
+        "completed": false
+      },
+      "actual": {
+        "completedSteps": 0,
+        "totalSteps": 9,
+        "hints": 0,
+        "errors": 1,
+        "completed": false,
+        "errorDetails": [
+          "Событие 1: действие READ_REPORT с объектом diagnostic_report не завершило ожидаемый шаг."
+        ]
+      }
+    },
+    {
+      "name": "hint_after_completion",
+      "passed": true,
+      "inputEvents": [
+        {
+          "Number": 1,
+          "Kind": "action",
+          "StepCode": "READ_REPORT",
+          "ObjectId": "diagnostic_report",
+          "Success": true
+        },
+        {
+          "Number": 2,
+          "Kind": "action",
+          "StepCode": "POWER_OFF",
+          "ObjectId": "pc",
+          "Success": true
+        },
+        {
+          "Number": 3,
+          "Kind": "action",
+          "StepCode": "UNPLUG",
+          "ObjectId": "power_cable",
+          "Success": true
+        },
+        {
+          "Number": 4,
+          "Kind": "action",
+          "StepCode": "OPEN_CASE",
+          "ObjectId": "case",
+          "Success": true
+        },
+        {
+          "Number": 5,
+          "Kind": "action",
+          "StepCode": "SELECT_FAULTY",
+          "ObjectId": "ram_slot_b",
+          "Success": true
+        },
+        {
+          "Number": 6,
+          "Kind": "action",
+          "StepCode": "REMOVE_RAM",
+          "ObjectId": "ram_slot_b",
+          "Success": true
+        },
+        {
+          "Number": 7,
+          "Kind": "action",
+          "StepCode": "INSTALL_RAM",
+          "ObjectId": "ram_slot_b",
+          "Success": true
+        },
+        {
+          "Number": 8,
+          "Kind": "action",
+          "StepCode": "CLOSE_CASE",
+          "ObjectId": "case",
+          "Success": true
+        },
+        {
+          "Number": 9,
+          "Kind": "action",
+          "StepCode": "RUN_TEST",
+          "ObjectId": "memory_test",
+          "Success": true
+        },
+        {
+          "Number": 10,
+          "Kind": "hint",
+          "StepCode": "",
+          "ObjectId": "",
+          "Success": true
+        }
+      ],
+      "expected": {
+        "completedSteps": 9,
+        "hints": 1,
+        "errors": 0,
+        "completed": true
+      },
+      "actual": {
+        "completedSteps": 9,
+        "totalSteps": 9,
+        "hints": 1,
+        "errors": 0,
+        "completed": true,
+        "errorDetails": []
+      }
+    }
+  ]
+}

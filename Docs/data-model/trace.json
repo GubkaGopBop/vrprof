@@ -1,0 +1,24 @@
+{
+  "attempt_id": "demo-completed",
+  "student_id": "participant-student-001",
+  "mentor_id": "participant-mentor-001",
+  "event_number": 6,
+  "action": "SELECT_FAULTY",
+  "actual_object": {
+    "id": "object-7",
+    "exercise_id": "ram-replacement-v1",
+    "code": "ram_slot_a",
+    "label": "Модуль памяти в слоте A",
+    "object_type": "ram_module"
+  },
+  "expected_object": {
+    "id": "object-5",
+    "exercise_id": "ram-replacement-v1",
+    "code": "ram_slot_b",
+    "label": "Модуль памяти в слоте B",
+    "object_type": "ram_module"
+  },
+  "rule_id": "rule-5",
+  "result_id": "demo-completed-result",
+  "mentor_feedback_id": "demo-completed-mentor-feedback"
+}

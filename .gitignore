@@ -10,6 +10,7 @@
 .idea/
 *.csproj
 !Verification/CrossCheck/CrossCheck.csproj
+!Verification/TeacherCases/TeacherCases.csproj
 *.sln
 *.slnx
 *.user

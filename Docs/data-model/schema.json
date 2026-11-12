@@ -1,0 +1,102 @@
+{
+  "roles": {
+    "fields": [
+      "id",
+      "name"
+    ],
+    "primary_key": "id"
+  },
+  "participants": {
+    "fields": [
+      "id",
+      "role_id",
+      "code",
+      "display_label"
+    ],
+    "primary_key": "id"
+  },
+  "exercises": {
+    "fields": [
+      "id",
+      "title",
+      "profession",
+      "version"
+    ],
+    "primary_key": "id"
+  },
+  "training_objects": {
+    "fields": [
+      "id",
+      "exercise_id",
+      "code",
+      "label",
+      "object_type"
+    ],
+    "primary_key": "id"
+  },
+  "steps": {
+    "fields": [
+      "id",
+      "exercise_id",
+      "position",
+      "title"
+    ],
+    "primary_key": "id"
+  },
+  "rules": {
+    "fields": [
+      "id",
+      "step_id",
+      "expected_action",
+      "expected_object_id",
+      "require_success"
+    ],
+    "primary_key": "id"
+  },
+  "attempts": {
+    "fields": [
+      "id",
+      "exercise_id",
+      "pupil_id",
+      "mentor_id",
+      "status"
+    ],
+    "primary_key": "id"
+  },
+  "events": {
+    "fields": [
+      "id",
+      "attempt_id",
+      "number",
+      "kind",
+      "action_code",
+      "actual_object_id",
+      "success"
+    ],
+    "primary_key": "id"
+  },
+  "feedback": {
+    "fields": [
+      "id",
+      "attempt_id",
+      "author_id",
+      "text",
+      "difficulty",
+      "interest"
+    ],
+    "primary_key": "id"
+  },
+  "results": {
+    "fields": [
+      "id",
+      "attempt_id",
+      "completed_steps",
+      "total_steps",
+      "hints",
+      "errors",
+      "error_details",
+      "summary"
+    ],
+    "primary_key": "id"
+  }
+}

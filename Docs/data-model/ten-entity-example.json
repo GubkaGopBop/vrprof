@@ -1,0 +1,348 @@
+{
+  "roles": [
+    {
+      "id": "role-student",
+      "name": "Школьник"
+    },
+    {
+      "id": "role-mentor",
+      "name": "Наставник"
+    }
+  ],
+  "participants": [
+    {
+      "id": "participant-student-001",
+      "role_id": "role-student",
+      "code": "S001",
+      "display_label": "Учебный участник S001"
+    },
+    {
+      "id": "participant-mentor-001",
+      "role_id": "role-mentor",
+      "code": "M001",
+      "display_label": "Учебный наставник M001"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "ram-replacement-v1",
+      "title": "Замена модуля оперативной памяти",
+      "profession": "Обслуживание ПК",
+      "version": 1
+    }
+  ],
+  "training_objects": [
+    {
+      "id": "object-1",
+      "exercise_id": "ram-replacement-v1",
+      "code": "diagnostic_report",
+      "label": "Результат модельной диагностики",
+      "object_type": "document"
+    },
+    {
+      "id": "object-2",
+      "exercise_id": "ram-replacement-v1",
+      "code": "pc",
+      "label": "Виртуальный персональный компьютер",
+      "object_type": "computer"
+    },
+    {
+      "id": "object-3",
+      "exercise_id": "ram-replacement-v1",
+      "code": "power_cable",
+      "label": "Кабель питания компьютера",
+      "object_type": "cable"
+    },
+    {
+      "id": "object-4",
+      "exercise_id": "ram-replacement-v1",
+      "code": "case",
+      "label": "Корпус компьютера",
+      "object_type": "case"
+    },
+    {
+      "id": "object-5",
+      "exercise_id": "ram-replacement-v1",
+      "code": "ram_slot_b",
+      "label": "Модуль памяти в слоте B",
+      "object_type": "ram_module"
+    },
+    {
+      "id": "object-6",
+      "exercise_id": "ram-replacement-v1",
+      "code": "memory_test",
+      "label": "Средство модельной проверки памяти",
+      "object_type": "tool"
+    },
+    {
+      "id": "object-7",
+      "exercise_id": "ram-replacement-v1",
+      "code": "ram_slot_a",
+      "label": "Модуль памяти в слоте A",
+      "object_type": "ram_module"
+    }
+  ],
+  "steps": [
+    {
+      "id": "step-1",
+      "exercise_id": "ram-replacement-v1",
+      "position": 1,
+      "title": "Прочитать диагностику"
+    },
+    {
+      "id": "step-2",
+      "exercise_id": "ram-replacement-v1",
+      "position": 2,
+      "title": "Выключить ПК"
+    },
+    {
+      "id": "step-3",
+      "exercise_id": "ram-replacement-v1",
+      "position": 3,
+      "title": "Отсоединить питание"
+    },
+    {
+      "id": "step-4",
+      "exercise_id": "ram-replacement-v1",
+      "position": 4,
+      "title": "Открыть корпус"
+    },
+    {
+      "id": "step-5",
+      "exercise_id": "ram-replacement-v1",
+      "position": 5,
+      "title": "Выбрать неисправный модуль"
+    },
+    {
+      "id": "step-6",
+      "exercise_id": "ram-replacement-v1",
+      "position": 6,
+      "title": "Извлечь модуль"
+    },
+    {
+      "id": "step-7",
+      "exercise_id": "ram-replacement-v1",
+      "position": 7,
+      "title": "Установить исправный модуль"
+    },
+    {
+      "id": "step-8",
+      "exercise_id": "ram-replacement-v1",
+      "position": 8,
+      "title": "Закрыть корпус"
+    },
+    {
+      "id": "step-9",
+      "exercise_id": "ram-replacement-v1",
+      "position": 9,
+      "title": "Повторить модельную проверку"
+    }
+  ],
+  "rules": [
+    {
+      "id": "rule-1",
+      "step_id": "step-1",
+      "expected_action": "READ_REPORT",
+      "expected_object_id": "object-1",
+      "require_success": true
+    },
+    {
+      "id": "rule-2",
+      "step_id": "step-2",
+      "expected_action": "POWER_OFF",
+      "expected_object_id": "object-2",
+      "require_success": true
+    },
+    {
+      "id": "rule-3",
+      "step_id": "step-3",
+      "expected_action": "UNPLUG",
+      "expected_object_id": "object-3",
+      "require_success": true
+    },
+    {
+      "id": "rule-4",
+      "step_id": "step-4",
+      "expected_action": "OPEN_CASE",
+      "expected_object_id": "object-4",
+      "require_success": true
+    },
+    {
+      "id": "rule-5",
+      "step_id": "step-5",
+      "expected_action": "SELECT_FAULTY",
+      "expected_object_id": "object-5",
+      "require_success": true
+    },
+    {
+      "id": "rule-6",
+      "step_id": "step-6",
+      "expected_action": "REMOVE_RAM",
+      "expected_object_id": "object-5",
+      "require_success": true
+    },
+    {
+      "id": "rule-7",
+      "step_id": "step-7",
+      "expected_action": "INSTALL_RAM",
+      "expected_object_id": "object-5",
+      "require_success": true
+    },
+    {
+      "id": "rule-8",
+      "step_id": "step-8",
+      "expected_action": "CLOSE_CASE",
+      "expected_object_id": "object-4",
+      "require_success": true
+    },
+    {
+      "id": "rule-9",
+      "step_id": "step-9",
+      "expected_action": "RUN_TEST",
+      "expected_object_id": "object-6",
+      "require_success": true
+    }
+  ],
+  "attempts": [
+    {
+      "id": "demo-completed",
+      "exercise_id": "ram-replacement-v1",
+      "pupil_id": "participant-student-001",
+      "mentor_id": "participant-mentor-001",
+      "status": "completed"
+    }
+  ],
+  "events": [
+    {
+      "id": "demo-completed-event-1",
+      "attempt_id": "demo-completed",
+      "number": 1,
+      "kind": "action",
+      "action_code": "READ_REPORT",
+      "actual_object_id": "object-1",
+      "success": true
+    },
+    {
+      "id": "demo-completed-event-2",
+      "attempt_id": "demo-completed",
+      "number": 2,
+      "kind": "action",
+      "action_code": "POWER_OFF",
+      "actual_object_id": "object-2",
+      "success": true
+    },
+    {
+      "id": "demo-completed-event-3",
+      "attempt_id": "demo-completed",
+      "number": 3,
+      "kind": "action",
+      "action_code": "UNPLUG",
+      "actual_object_id": "object-3",
+      "success": true
+    },
+    {
+      "id": "demo-completed-event-4",
+      "attempt_id": "demo-completed",
+      "number": 4,
+      "kind": "action",
+      "action_code": "OPEN_CASE",
+      "actual_object_id": "object-4",
+      "success": true
+    },
+    {
+      "id": "demo-completed-event-5",
+      "attempt_id": "demo-completed",
+      "number": 5,
+      "kind": "hint",
+      "action_code": null,
+      "actual_object_id": null,
+      "success": null
+    },
+    {
+      "id": "demo-completed-event-6",
+      "attempt_id": "demo-completed",
+      "number": 6,
+      "kind": "action",
+      "action_code": "SELECT_FAULTY",
+      "actual_object_id": "object-7",
+      "success": true
+    },
+    {
+      "id": "demo-completed-event-7",
+      "attempt_id": "demo-completed",
+      "number": 7,
+      "kind": "action",
+      "action_code": "SELECT_FAULTY",
+      "actual_object_id": "object-5",
+      "success": true
+    },
+    {
+      "id": "demo-completed-event-8",
+      "attempt_id": "demo-completed",
+      "number": 8,
+      "kind": "action",
+      "action_code": "REMOVE_RAM",
+      "actual_object_id": "object-5",
+      "success": true
+    },
+    {
+      "id": "demo-completed-event-9",
+      "attempt_id": "demo-completed",
+      "number": 9,
+      "kind": "action",
+      "action_code": "INSTALL_RAM",
+      "actual_object_id": "object-5",
+      "success": true
+    },
+    {
+      "id": "demo-completed-event-10",
+      "attempt_id": "demo-completed",
+      "number": 10,
+      "kind": "action",
+      "action_code": "CLOSE_CASE",
+      "actual_object_id": "object-4",
+      "success": true
+    },
+    {
+      "id": "demo-completed-event-11",
+      "attempt_id": "demo-completed",
+      "number": 11,
+      "kind": "action",
+      "action_code": "RUN_TEST",
+      "actual_object_id": "object-6",
+      "success": true
+    }
+  ],
+  "feedback": [
+    {
+      "id": "demo-completed-student-feedback",
+      "attempt_id": "demo-completed",
+      "author_id": "participant-student-001",
+      "text": "Сначала выбрал не тот модуль; работа интересна.",
+      "difficulty": 2,
+      "interest": 4
+    },
+    {
+      "id": "demo-completed-mentor-feedback",
+      "attempt_id": "demo-completed",
+      "author_id": "participant-mentor-001",
+      "text": "После подсказки задание завершено.",
+      "difficulty": null,
+      "interest": null
+    }
+  ],
+  "results": [
+    {
+      "id": "demo-completed-result",
+      "attempt_id": "demo-completed",
+      "completed_steps": 9,
+      "total_steps": 9,
+      "hints": 1,
+      "errors": 1,
+      "error_details": [
+        "Событие 6: действие SELECT_FAULTY с объектом ram_slot_a не завершило ожидаемый шаг."
+      ],
+      "summary": "Проба: Замена модуля оперативной памяти.\nКод школьника: S001.\nВыполнено шагов: 9 из 9.\nПодсказок: 1; ошибок: 1.\nСложность: 2/5; интерес: 4/5.\nСамооценка школьника: Сначала выбрал не тот модуль; работа интересна.\nКомментарий наставника: После подсказки задание завершено.\nСобытие 6: действие SELECT_FAULTY с объектом ram_slot_a не завершило ожидаемый шаг."
+    }
+  ]
+}

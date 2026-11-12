@@ -1,0 +1,20 @@
+{
+  "entities": 10,
+  "foreign_key_relations_checked": 13,
+  "passed": true,
+  "relations": [
+    "participants.role_id -> roles.id",
+    "training_objects.exercise_id -> exercises.id",
+    "steps.exercise_id -> exercises.id",
+    "rules.step_id -> steps.id",
+    "rules.expected_object_id -> training_objects.id",
+    "attempts.exercise_id -> exercises.id",
+    "attempts.pupil_id -> participants.id",
+    "attempts.mentor_id -> participants.id",
+    "events.attempt_id -> attempts.id",
+    "events.actual_object_id -> training_objects.id",
+    "feedback.attempt_id -> attempts.id",
+    "feedback.author_id -> participants.id",
+    "results.attempt_id -> attempts.id"
+  ]
+}
