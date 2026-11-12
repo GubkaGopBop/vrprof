@@ -12,7 +12,7 @@ RESULTS.mkdir(exist_ok=True)
 checks = []
 
 def execute(arguments):
-    return subprocess.run(arguments, cwd=ROOT, capture_output=True, text=True, encoding='utf-8', errors='replace')
+    return subprocess.run(arguments, cwd=ROOT, capture_output=True, text=True, encoding='utf-8', errors='strict')
 
 def check(name, passed, detail=''):
     checks.append(dict(name=name, passed=bool(passed), detail=detail))
@@ -27,8 +27,9 @@ for name in ['completed', 'incomplete']:
     actual = json.loads(proc.stdout)
     result = actual['result']
     expected = (9, 1, 1, True) if name == 'completed' else (4, 0, 1, False)
-    check(f'{name}: independently expected counters',
-          (result['completedSteps'], result['hints'], result['errors'], actual['completed']) == expected)
+    check(f'{name}: independently expected counters and UTF-8 summary',
+          (result['completedSteps'], result['hints'], result['errors'], actual['completed']) == expected
+          and actual['summary'] == (RESULTS/name/'summary.txt').read_text(encoding='utf-8').rstrip('\n'))
     cross = execute(['dotnet', 'run', '--project', str(ROOT/'Verification/CrossCheck'), '--',
                      str(source), str(RESULTS/name/'analysis.json')])
     (RESULTS/f'crosscheck-{name}.txt').write_text(cross.stdout + cross.stderr, encoding='utf-8')

@@ -2,12 +2,15 @@ package vrprof;
 
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 public final class Main {
     public static void main(String[] args) {
+        System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
+        System.setErr(new PrintStream(System.err, true, StandardCharsets.UTF_8));
         if (args.length < 1 || args.length > 2) {
             System.err.println("Использование: java -jar build/vrprof-analyzer.jar журнал.json [каталог-результата]");
             System.exit(2);

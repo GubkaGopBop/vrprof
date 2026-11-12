@@ -9,7 +9,7 @@
       "detail": ""
     },
     {
-      "name": "completed: independently expected counters",
+      "name": "completed: independently expected counters and UTF-8 summary",
       "passed": true,
       "detail": ""
     },
@@ -24,7 +24,7 @@
       "detail": ""
     },
     {
-      "name": "incomplete: independently expected counters",
+      "name": "incomplete: independently expected counters and UTF-8 summary",
       "passed": true,
       "detail": ""
     },
@@ -36,72 +36,72 @@
     {
       "name": "Unknown exercise",
       "passed": true,
-      "detail": "������ ������� ������: ����������� ������ �������: other"
+      "detail": "Ошибка входных данных: Неизвестная версия задания: other"
     },
     {
       "name": "Missing Events",
       "passed": true,
-      "detail": "������ ������� ������: ��� ���� Events"
+      "detail": "Ошибка входных данных: Нет поля Events"
     },
     {
       "name": "Null Events",
       "passed": true,
-      "detail": "������ ������� ������: ��� ���� Events"
+      "detail": "Ошибка входных данных: Нет поля Events"
     },
     {
       "name": "Events is not array",
       "passed": true,
-      "detail": "������ ������� ������: Events ������ ���� ��������."
+      "detail": "Ошибка входных данных: Events должен быть массивом."
     },
     {
       "name": "Number gap",
       "passed": true,
-      "detail": "������ ������� ������: ������ ������� ������ ���� ������, ������� � 1."
+      "detail": "Ошибка входных данных: Номера событий должны идти подряд, начиная с 1."
     },
     {
       "name": "Unknown event kind",
       "passed": true,
-      "detail": "������ ������� ������: ������������ ����� ��� ��� �������."
+      "detail": "Ошибка входных данных: Некорректные номер или вид события."
     },
     {
       "name": "Invalid difficulty",
       "passed": true,
-      "detail": "������ ������� ������: ������ ������ ���� �� 1 �� 5."
+      "detail": "Ошибка входных данных: Оценки должны быть от 1 до 5."
     },
     {
       "name": "Invalid interest",
       "passed": true,
-      "detail": "������ ������� ������: ������ ������ ���� �� 1 �� 5."
+      "detail": "Ошибка входных данных: Оценки должны быть от 1 до 5."
     },
     {
       "name": "Fractional rating",
       "passed": true,
-      "detail": "������ ������� ������: ������������ JSON-������: Rounding necessary"
+      "detail": "Ошибка входных данных: Некорректный JSON-журнал: Rounding necessary"
     },
     {
       "name": "String instead of number",
       "passed": true,
-      "detail": "������ ������� ������: Difficulty ������ ���� ����� ������."
+      "detail": "Ошибка входных данных: Difficulty должен быть целым числом."
     },
     {
       "name": "String instead of boolean",
       "passed": true,
-      "detail": "������ ������� ������: Success ������ ���� true ��� false."
+      "detail": "Ошибка входных данных: Success должен быть true или false."
     },
     {
       "name": "Missing action object",
       "passed": true,
-      "detail": "������ ������� ������: ��� ���� ObjectId"
+      "detail": "Ошибка входных данных: Нет поля ObjectId"
     },
     {
       "name": "Null action code",
       "passed": true,
-      "detail": "������ ������� ������: ��� ���� StepCode"
+      "detail": "Ошибка входных данных: Нет поля StepCode"
     },
     {
       "name": "Blank pupil code",
       "passed": true,
-      "detail": "������ ������� ������: �������������� �������, ������� � ���������� �����������."
+      "detail": "Ошибка входных данных: Идентификаторы попытки, задания и участников обязательны."
     },
     {
       "name": "Empty log remains incomplete",
@@ -126,22 +126,22 @@
     {
       "name": "Malformed JSON",
       "passed": true,
-      "detail": "������ ������� ������: ������������ JSON-������: java.io.EOFException: End of input at line 1 column 2 path $."
+      "detail": "Ошибка входных данных: Некорректный JSON-журнал: java.io.EOFException: End of input at line 1 column 2 path $."
     },
     {
       "name": "Trailing JSON document",
       "passed": true,
-      "detail": "������ ������� ������: Use JsonReader.setStrictness(Strictness.LENIENT) to accept malformed JSON at line 1 column 3354 path $\nSee https://github.com/google/gson/blob/main/Troubleshooting.md#malformed-json"
+      "detail": "Ошибка входных данных: Use JsonReader.setStrictness(Strictness.LENIENT) to accept malformed JSON at line 1 column 3354 path $\nSee https://github.com/google/gson/blob/main/Troubleshooting.md#malformed-json"
     },
     {
       "name": "Missing file",
       "passed": true,
-      "detail": "������ ������� ������: C:\\Users\\User\\AppData\\Local\\Temp\\vrprof-check-1k3u8qxl\\absent.json"
+      "detail": "Ошибка входных данных: C:\\Users\\User\\AppData\\Local\\Temp\\vrprof-check-16h7rfbf\\absent.json"
     },
     {
       "name": "Missing CLI arguments",
       "passed": true,
-      "detail": "�������������: java -jar build/vrprof-analyzer.jar ������.json [�������-����������]"
+      "detail": "Использование: java -jar build/vrprof-analyzer.jar журнал.json [каталог-результата]"
     }
   ]
 }
